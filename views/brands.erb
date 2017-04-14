@@ -1,0 +1,25 @@
+<h1>Brands</h1>
+<hr>
+<br>
+<p>Add a brand to the database</p>
+<form action="/brands" method="post">
+    <label for="name">Brand's name:</label>
+    <input id="name" name="name" type="text">
+
+    <button type="submit">Add Brand</button>
+  </form>
+
+<% if @brands == [] %>
+<p>There are currently no brands in the database</p>
+
+<% else %>
+
+<p>Current Brands</p>
+<ul>
+  <% @brands.each() do |brand| %>
+<li><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></li>
+
+  <% end %>
+</ul>
+
+<% end %>

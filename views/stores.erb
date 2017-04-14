@@ -1,0 +1,25 @@
+<h1>Stores</h1>
+<hr>
+<br>
+<p>Add a store to the database</p>
+<form action="/stores" method="post">
+    <label for="name">Store's name:</label>
+    <input id="name" name="name" type="text">
+
+    <button type="submit">Add Store</button>
+  </form>
+
+<% if @stores == [] %>
+<p>There are currently no stores in the database</p>
+
+<% else %>
+
+<p>Current Stores</p>
+<ul>
+  <% @stores.each() do |store| %>
+<li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
+
+  <% end %>
+</ul>
+
+<% end %>
